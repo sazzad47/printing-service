@@ -195,6 +195,21 @@ ring-color: #9CA3AF !important;
 .fade {
     -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
   }
+.grid-container {
+  grid-template-columns: 1fr 1fr 1fr;
+  background:
+    linear-gradient(#000,#000) center/2px 100% no-repeat,
+    linear-gradient(#000,#000) center/2px 100% no-repeat;
+  background-position:33% 0, 67% 0;
+}
+
+.grid-item {
+  height: 20px;
+  background-color: red;
+  position: relative;
+}
+
+
 
 
 

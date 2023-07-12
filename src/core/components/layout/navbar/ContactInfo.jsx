@@ -9,15 +9,15 @@ const ContactInfo = () => {
       <div className="flex gap-4 items-center">
         <div className="flex gap-2 items-center">
           <BiSolidPhoneCall/>
-          +8800000000000
+          +65 9012 1219
         </div>
         <div className="flex gap-2 items-center">
           <AiOutlineMail/>
-           example@gmail.com
+          sales@valueprint.com.sg
         </div>
         <div className="flex gap-2 items-center">
           <MdLocationPin/>
-            Jahangirnagar University, Savar, Dhaka-1342
+          1 Brooke Road #01-01 Katong Plaza Singapore 429979
         </div>
       </div>
     </div>
