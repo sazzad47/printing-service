@@ -1,4 +1,4 @@
-import Dashboard from "../pages/dashboard";
+import Home from "../pages/home";
 import Pendings from "../pages/pendings";
 import Transactions from "../pages/transactions";
 import Login from "../pages/login";
@@ -16,8 +16,8 @@ import ViewProduct from "../pages/products/list/preview";
 
 
 const routes = [
-    { path: "/", component: <Dashboard /> },
-    { path: "/dashboard", component: <Dashboard /> },
+    { path: "/", component: <Home /> },
+    { path: "/home", component: <Home /> },
     { path: "/products/categories", component: <Categories /> },
     { path: "/products/categories/create", component: <CreateCategory /> },
     { path: "/products/categories/:id/edit", component: <EditCategory /> },

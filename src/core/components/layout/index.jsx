@@ -4,8 +4,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "../../theme";
 import { useSelector } from "react-redux";
-import Navbar from "../../components/Navbar";
-import Sidebar from "../../components/Sidebar";
+import Navbar from "./navbar";
 import { useGetUserQuery } from "../../state/api";
 
 const Layout = ({ children }) => {
@@ -20,18 +19,10 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box sx={{
-          
-            backgroundColor: theme.palette.background.default,
-         
-        }} display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
-        <Sidebar
-          user={data || {}}
-          isNonMobile={isNonMobile}
-          drawerWidth="250px"
-          isSidebarOpen={isSidebarOpen}
-          setIsSidebarOpen={setIsSidebarOpen}
-        />
+      <Box
+        width="100%"
+        height="100%"
+      >
         <Box flexGrow={1}>
           <Navbar
             user={data || {}}
@@ -39,10 +30,7 @@ const Layout = ({ children }) => {
             setIsSidebarOpen={setIsSidebarOpen}
             isNonMobile={isNonMobile}
           />
-          <Grid className="mt-[4rem] max-h-[88vh] overflow-y-auto">
-
-          {children}
-          </Grid>
+          <Grid className="min-h-[88vh] overflow-y-auto">{children}</Grid>
         </Box>
       </Box>
     </ThemeProvider>
