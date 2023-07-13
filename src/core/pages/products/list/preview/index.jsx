@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../../components/Header";
 import {
-  Link,
   useParams,
   useSearchParams,
 } from "react-router-dom";
-import { Button } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import { useGetProductQuery } from "../../../../state/api/product";
 import { Oval } from "react-loader-spinner";
 import Description from "./description";
@@ -59,15 +56,6 @@ const Preview = () => {
         <div className="my-[1.5rem] mx-[2.5rem]">
           <div className="w-full flex justify-between">
             <Header title={`${data.name}`} />
-            <Link to={`/products/list/${id}/edit`}>
-              <Button
-                className="text-white"
-                startIcon={<EditIcon />}
-                variant="contained"
-              >
-                Edit
-              </Button>
-            </Link>
           </div>
           <div className="mt-[1rem] flex flex-col gap-5">
             <div className="grid grid-cols-2 h-[25rem]">

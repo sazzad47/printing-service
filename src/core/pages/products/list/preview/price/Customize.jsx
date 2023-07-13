@@ -81,8 +81,9 @@ export default function Customize({ setPrice, data }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
-    const pricePerProduct = data.rp - (data.rp * data.dp * newValue.quantity)/100;
+
+    const pricePerProduct =
+      data.rp - (data.rp * data.dp * newValue.quantity) / 100;
     const valueToAdd = {
       quantity: newValue.quantity,
       price: pricePerProduct * newValue.quantity,
@@ -104,14 +105,18 @@ export default function Customize({ setPrice, data }) {
     <div>
       <Button
         sx={{
-          backgroundColor: theme.palette.background.alt,
-          color: theme.palette.secondary[200],
+          backgroundColor: theme.palette.primary[700],
+          color: "white",
+          "&:hover": {
+            backgroundColor: theme.palette.primary[800], // Add the desired hover background color
+          },
         }}
         className="mt-[30px]"
         onClick={handleClickOpen}
       >
         Customize Quantity
       </Button>
+
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"

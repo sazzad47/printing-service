@@ -50,19 +50,16 @@ const Price = ({
           <Customize data={data} price={price} setPrice={setPrice} />
         </div>
         <Box className="p-5">
-          <Box
-            sx={{
-              bgcolor: theme.palette.primary[400],
-              color: theme.palette.secondary[200],
-            }}
-            className="flex items-start text-sm gap-2 px-3 py-2 rounded-lg"
+          <div
+            
+            className="bg-[#fdf2f8] text-gray-800 flex items-start text-sm gap-2 px-3 py-2 rounded-lg"
           >
             <BsInfoCircle className="text-lg" />
             <Typography>
               Prices quoted are for one design only. Should you have multiple
               designs, add multiple items to your cart before checkout.
             </Typography>
-          </Box>
+          </div>
         </Box>
         <FormControl className="w-full">
           <RadioGroup
@@ -75,10 +72,10 @@ const Price = ({
                 {array1.map((item, index) => (
                   <Box
                     sx={{
-                      border: `1px solid ${theme.palette.primary[400]}`,
+                      border: `1px solid ${theme.palette.primary[700]}`,
                       borderBottom: 0,
                       "&:last-child": {
-                        borderBottom: `1px solid ${theme.palette.primary[400]}`,
+                        borderBottom: `1px solid ${theme.palette.primary[700]}`,
                       },
                     }}
                     key={index}
@@ -93,9 +90,11 @@ const Price = ({
                             margin: 0,
                             padding: 0,
                             marginRight: "7px",
+                            color: "#831843"
                           },
                         }}
                         label={item.quantity}
+                        className="text-gray-900"
                       />
                       <div className="relative">
 
@@ -113,7 +112,7 @@ const Price = ({
                       </div>
                     </div>
 
-                    <div className="flex flex-col gap-2">
+                    <div className="text-gray-900 flex flex-col gap-2">
                       <Typography className="font-bold">
                         {" "}
                         ${item.price}
@@ -132,10 +131,10 @@ const Price = ({
                 {array2.map((item, index) => (
                   <Box
                     sx={{
-                      border: `1px solid ${theme.palette.primary[400]}`,
+                      border: `1px solid ${theme.palette.primary[700]}`,
                       borderBottom: 0,
                       "&:last-child": {
-                        borderBottom: `1px solid ${theme.palette.primary[400]}`,
+                        borderBottom: `1px solid ${theme.palette.primary[700]}`,
                       },
                     }}
                     key={index}
@@ -149,12 +148,14 @@ const Price = ({
                           margin: 0,
                           padding: 0,
                           marginRight: "7px",
+                          color: "#831843"
                         },
                       }}
                       label={item.quantity}
+                      className="text-gray-900"
                     />
 
-                    <div className="flex flex-col gap-2">
+                    <div className="text-gray-900 flex flex-col gap-2">
                       <Typography className="font-bold">
                         {" "}
                         ${item.price}
@@ -173,10 +174,10 @@ const Price = ({
                 {array3.map((item, index) => (
                   <Box
                     sx={{
-                      border: `1px solid ${theme.palette.primary[400]}`,
+                      border: `1px solid ${theme.palette.primary[700]}`,
                       borderBottom: 0,
                       "&:last-child": {
-                        borderBottom: `1px solid ${theme.palette.primary[400]}`,
+                        borderBottom: `1px solid ${theme.palette.primary[700]}`,
                       },
                     }}
                     key={index}
@@ -190,12 +191,14 @@ const Price = ({
                           margin: 0,
                           padding: 0,
                           marginRight: "7px",
+                          color: "#831843"
                         },
                       }}
                       label={item.quantity}
+                      className="text-gray-900"
                     />
 
-                    <div className="flex flex-col gap-2">
+                    <div className="text-gray-900 flex flex-col gap-2">
                       <Typography className="font-bold">
                         {" "}
                         ${item.price}
@@ -213,7 +216,7 @@ const Price = ({
               {array4.map((item, index) => (
                 <Box
                   sx={{
-                    border: `1px solid ${theme.palette.primary[400]}`,
+                    border: `1px solid ${theme.palette.primary[700]}`,
                     borderTop: 0,
                   }}
                   key={index}
@@ -227,9 +230,11 @@ const Price = ({
                         margin: 0,
                         padding: 0,
                         marginRight: "7px",
+                        color: "#831843"
                       },
                     }}
                     label={item.quantity}
+                    className="text-gray-900"
                   />
                   <div className="flex flex-col gap-2">
                     <Typography className="font-bold">

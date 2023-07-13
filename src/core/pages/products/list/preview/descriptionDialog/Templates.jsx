@@ -7,7 +7,7 @@ const Templates = ({ data }) => {
 
   return (
     <div className="w-fll h-full flex flex-col justify-between">
-      <Box className="text-white">
+      <Box className="text-gray-900">
         <Typography> {data.templates.instruction} </Typography>
         <div className="mt-3">
           {data.templates.content.map((item, index) => (
@@ -30,7 +30,7 @@ const TemplateContent = ({ item }) => {
 
   return (
     <div className="flex flex-col">
-      <Divider />
+      <Divider className="bg-[#ffe4e6]" />
       <div className="flex items-center justify-between pt-3 pb-3 px-4">
         <Typography className="font-bold">{item.format}</Typography>
         <div>

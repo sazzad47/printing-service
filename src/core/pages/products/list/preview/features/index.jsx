@@ -66,7 +66,7 @@ const Features = ({
         sx={{
           width: "100%",
           height: "auto",
-          backgroundColor: theme.palette.primary[700],
+          backgroundColor: "white",
           paddingBottom: "2rem",
         }}
       >

@@ -3,7 +3,7 @@ import React from 'react'
 
 const Placeholder = ({text}) => {
     const theme = useTheme();
-    console.log('placeholder')
+    
   return (
     <Box
           component="div"
@@ -13,8 +13,9 @@ const Placeholder = ({text}) => {
             left: "-15px",
             width: "280px",
             height: "50px",
-            backgroundColor: theme.palette.background.alt,
-            color: theme.palette.secondary[200],
+            backgroundColor: theme.palette.primary[700],
+            color: "white",
+            font: "bold",
             borderRadius: "30px",
             borderBottomLeftRadius: "0",
             "::before": {
@@ -23,7 +24,7 @@ const Placeholder = ({text}) => {
               top: "50px",
               width: "15px",
               height: "30px",
-              backgroundColor: theme.palette.primary[400],
+              backgroundColor: theme.palette.primary[600],
               borderTopLeftRadius: "20px",
               borderBottomLeftRadius: "20px",
               zIndex: "2",
@@ -34,7 +35,7 @@ const Placeholder = ({text}) => {
               top: "50px",
               width: "15px",
               height: "15px",
-              backgroundColor: theme.palette.background.alt,
+              backgroundColor: theme.palette.primary[700],
             },
           }}
         >

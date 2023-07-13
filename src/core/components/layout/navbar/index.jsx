@@ -11,7 +11,7 @@ import ContactInfo from "./ContactInfo";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [open] = useState(false);
   return (
     <>
     <ContactInfo/>
@@ -29,7 +29,7 @@ const Navbar = () => {
         <ul className="flex list-none flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
           <li>
             <button
-              onClick={() => setOpen(!open)}
+              // onClick={() => setOpen(!open)}
               className={`dropdown ${
                 open ? "active" : ""
               } px-5 py-2 flex gap-2 h-[3rem] text-lg text-white cursor-pointer items-center font-medium bg-fuchsia-900 rounded-full hover:bg-primaryBtnHoverBg md:mr-0`}

@@ -24,14 +24,14 @@ export default function DescriptionDialog({
   setValue,
 }) {
   const theme = useTheme();
-  
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
   const handleClose = () => {
     setOpenDialog(false);
   };
-  
+
   return (
     <div>
       <Dialog
@@ -39,16 +39,21 @@ export default function DescriptionDialog({
         open={openDialog}
         onClose={handleClose}
         TransitionComponent={Transition}
+        sx={{
+          "& .MuiDialog-paper": {
+            backgroundColor: "white",
+          },
+        }}
       >
         <div className="p-5 pb-0 flex justify-between">
-          <Typography className="text-2xl">{data.name}</Typography>
+          <Typography className="text-2xl text-gray-900">{data.name}</Typography>
           <IconButton
             edge="start"
-            color="inherit"
+            color="primary"
             onClick={handleClose}
             aria-label="close"
           >
-            <CloseIcon />
+            <CloseIcon className="text-gray-900" />
           </IconButton>
         </div>
 
@@ -56,16 +61,19 @@ export default function DescriptionDialog({
           <Tabs
             TabIndicatorProps={{
               sx: {
-                backgroundColor: "green",
+                backgroundColor: "#701a75",
               },
             }}
             sx={{
-              "& button": { color: "#00f6ff", textTransform: "capitalize" },
+              "& button": { color: "#db2777", textTransform: "capitalize" },
               "& button:focus": { outline: "none" },
               "& button.Mui-selected": {
                 color: theme.palette.secondary[500],
               },
-              backgroundColor: theme.palette.background.alt,
+              backgroundColor: "#fce7f3",
+              height: "3rem",
+              display: "flex",
+              alignItems: "center",
             }}
             value={value}
             onChange={handleChange}

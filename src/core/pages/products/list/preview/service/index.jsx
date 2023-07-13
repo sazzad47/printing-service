@@ -23,7 +23,7 @@ const Service = ({ data, services, setServices }) => {
         sx={{
           width: "100%",
           height: "auto",
-          backgroundColor: theme.palette.primary[700],
+          backgroundColor: "white",
           paddingBottom: "2rem",
         }}
       >
@@ -40,7 +40,7 @@ const Service = ({ data, services, setServices }) => {
               {services.map((item, index) => (
                 <Box
                   sx={{
-                    border: `1px solid ${theme.palette.primary[400]}`,
+                    border: `1px solid ${theme.palette.primary[800]}`,
                   }}
                   key={index}
                   className="w-full flex flex-col gap-5 p-5"
@@ -48,21 +48,37 @@ const Service = ({ data, services, setServices }) => {
                   <FormControlLabel
                     value={item.title}
                     control={<Radio />}
-                   
-                    label={<Typography className="font-bold text-sm"> {item.title}</Typography>}
+                    sx={{
+                      "& .MuiButtonBase-root": {
+                        color: "#831843"
+                      },
+                    }}
+                    label={
+                      <Typography className="font-bold text-sm text-fuchsia-900">
+                        {" "}
+                        {item.title}
+                      </Typography>
+                    }
                   />
                   <div className="w-full h-full flex flex-col justify-between px-5">
-
-                  <ul className="m-0 p-0">
-                    {item.services.map((item, index)=> (
+                    <ul className="m-0 p-0">
+                      {item.services.map((item, index) => (
                         <li key={index} className="w-full">
-                          <Typography className="text-xs whitespace-normal">{item}</Typography>
+                          <Typography className="text-gray-900 text-xs whitespace-normal">
+                            {item}
+                          </Typography>
                         </li>
-                    ))}
-                  </ul>
-                  <Typography sx={{color: theme.palette.secondary[200], mt:2, fontWeight: "bold"}}>
-                    Price: {item.price}
-                  </Typography>
+                      ))}
+                    </ul>
+                    <Typography
+                      sx={{
+                        color: theme.palette.secondary[200],
+                        mt: 2,
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Price: {item.price}
+                    </Typography>
                   </div>
                 </Box>
               ))}

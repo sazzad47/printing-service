@@ -29,16 +29,16 @@ const Description = ({data}) => {
       <Tabs
         TabIndicatorProps={{
           sx: {
-            backgroundColor: "green",
+            backgroundColor: "#701a75",
           },
         }}
         sx={{
-          "& button": { color: theme.palette.text.primary, textTransform: "capitalize" },
+          "& button": { color: "#db2777", textTransform: "capitalize" },
           "& button:focus": { outline: "none" },
           "& button.Mui-selected": {
             color: theme.palette.secondary[500],
           },
-          backgroundColor: theme.palette.background.alt,
+          backgroundColor: "#fce7f3",
           height: "3rem",
           display: "flex",
           alignItems: "center"

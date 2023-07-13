@@ -20,7 +20,7 @@ export const tokensDark = {
     100: "#d3d4de",
     200: "#a6a9be",
     300: "#7a7f9d",
-    400: "#4d547d",
+    400: "#fff",
     500: "#21295c",
     600: "#191F45", // manually adjusted
     700: "#141937",
@@ -30,11 +30,11 @@ export const tokensDark = {
   secondary: {
     // yellow
     50: "#f0f0f0", // manually adjusted
-    100: "#fff6e0",
-    200: "#ffedc2",
-    300: "#ffe3a3",
+    100: "#9d174d",
+    200: "#9d174d",
+    300: "#9d174d",
     400: "#ffda85",
-    500: "#ffd166",
+    500: "#9d174d",
     600: "#cca752",
     700: "#997d3d",
     800: "#665429",
@@ -86,7 +86,7 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: tokensDark.grey[10],
-              alt: tokensDark.primary[500],
+              alt: "#fdf2f8",
             },
           }
         : {
@@ -107,7 +107,7 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: tokensDark.grey[0],
-              alt: tokensDark.grey[50],
+              alt: "#fdf2f8",
             },
           }),
     },
