@@ -5,15 +5,15 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "../components/layout";
 
 // routes
-import { publicRoutes, routes } from "./Routes";
+import { routes } from "./Routes";
 import { AuthProtected } from "./AuthProtected";
-import { NonAuth } from "./NonAuth";
+// import { NonAuth } from "./NonAuth";
 
 const Index = () => {
   return (
     <>
       <Routes>
-        <Route>
+        {/* <Route>
           {publicRoutes.map((route, idx) => (
             <Route
               path={route.path}
@@ -22,7 +22,7 @@ const Index = () => {
               exact={true}
             />
           ))}
-        </Route>
+        </Route> */}
         <Route>
           {routes.map((route, idx) => (
             <Route

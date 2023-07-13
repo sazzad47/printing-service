@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 // import { Navigate } from "react-router-dom";
-import { useRefreshAccessToken } from "../pages/login/refreshToken";
+// import { useRefreshAccessToken } from "../pages/login/refreshToken";
 // import { useSelector } from "react-redux";
 
 const NonAuth = (props) => {
   // const { access_token } = useSelector(state => state.global);
-  const { refreshAccessToken } = useRefreshAccessToken();
+  // const { refreshAccessToken } = useRefreshAccessToken();
 
-  useEffect(() => {
-    refreshAccessToken();
-  }, [refreshAccessToken]);
+  // useEffect(() => {
+  //   refreshAccessToken();
+  // }, [refreshAccessToken]);
 
 
   // if (access_token) {
