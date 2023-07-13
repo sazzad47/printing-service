@@ -37,6 +37,19 @@ const publicRoutes = [
     { path: "/reset-password-email", component: <ResetPasswordEmail /> },
     { path: "/reset-password/:id/:token", component: <ResetPasswordPage /> },
     { path: "/login", component: <Login /> },
+    { path: "/", component: <Home /> },
+    { path: "/home", component: <Home /> },
+    { path: "/products/categories", component: <Categories /> },
+    { path: "/products/categories/create", component: <CreateCategory /> },
+    { path: "/products/categories/:id/edit", component: <EditCategory /> },
+    { path: "/products/list", component: <ProductList /> },
+    { path: "/products/list/create", component: <CreateProduct /> },
+    { path: "/products/list/:id/edit", component: <EditProduct /> },
+    { path: "/products/list/:id/preview", component: <ViewProduct /> },
+    { path: "/orders/pending", component: <Pendings /> },
+    { path: "/transactions", component: <Transactions /> },
+    { path: "/reviews", component: <Reviews /> },
+    { path: "/settings", component: <Settings /> },
 ]
 
 export {routes, publicRoutes};

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { useRefreshAccessToken } from "../pages/login/refreshToken";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Oval } from "react-loader-spinner";
 
 const AuthProtected = (props) => {
-  const { access_token } = useSelector((state) => state.global);
+  // const { access_token } = useSelector((state) => state.global);
   const { refreshAccessToken, loading } = useRefreshAccessToken();
 
   useEffect(() => {
@@ -31,11 +31,11 @@ const AuthProtected = (props) => {
     );
   }
 
-  if (!access_token) {
-    return (
-      <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
-    );
-  }
+  // if (!access_token) {
+  //   return (
+  //     <Navigate to={{ pathname: "/login", state: { from: props.location } }} />
+  //   );
+  // }
 
   return <>{props.children}</>;
 };

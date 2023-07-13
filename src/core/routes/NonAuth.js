@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { useRefreshAccessToken } from "../pages/login/refreshToken";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const NonAuth = (props) => {
-  const { access_token } = useSelector(state => state.global);
+  // const { access_token } = useSelector(state => state.global);
   const { refreshAccessToken } = useRefreshAccessToken();
 
   useEffect(() => {
@@ -12,11 +12,11 @@ const NonAuth = (props) => {
   }, [refreshAccessToken]);
 
 
-  if (access_token) {
-    return (
-      <Navigate to={{ pathname: "/", state: { from: props.location } }} />
-    );
-  }
+  // if (access_token) {
+  //   return (
+  //     <Navigate to={{ pathname: "/", state: { from: props.location } }} />
+  //   );
+  // }
 
   return <>{props.children}</>;
 };
