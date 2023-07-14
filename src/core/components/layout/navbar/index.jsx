@@ -14,7 +14,9 @@ const Navbar = () => {
   const [open] = useState(false);
   return (
     <>
+    <div className="hidden md:block">
     <ContactInfo/>
+    </div>
     <nav className="bg-white border-gray-300">
       <div className="h-[15vh] flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <Link to="/" className="flex items-center">
@@ -26,7 +28,7 @@ const Navbar = () => {
             alt="Logo"
           />
         </Link>
-        <ul className="flex list-none flex-col mt-4 font-medium md:flex-row md:space-x-8 md:mt-0">
+        <ul className="hidden md:flex list-none flex-row font-medium md:space-x-8">
           <li>
             <button
               // onClick={() => setOpen(!open)}
@@ -40,22 +42,22 @@ const Navbar = () => {
               <span className="arrow"></span>
             </button>
           </li>
-          <li>
+          <li className="">
             <SearchBar />
           </li>
         </ul>
-        <ul className="flex list-none flex-col mt-4 font-medium md:flex-row items-center md:space-x-8 md:mt-0">
+        <ul className=" flex list-none font-medium items-center space-x-8">
           <li>
             <Cart />
           </li>
           <li>
-            <IconButton >
-              <BsPersonFillLock className="text-5xl text-fuchsia-900" />
+            <IconButton className="p-0 m-0">
+              <BsPersonFillLock className="text-3xl md:text-5xl text-fuchsia-900" />
             </IconButton>
           </li>
           <li>
-            <IconButton >
-              <AiOutlineMenuUnfold className="text-5xl text-fuchsia-900" />
+            <IconButton className="p-0 m-0">
+              <AiOutlineMenuUnfold className="text-3xl md:text-5xl text-fuchsia-900" />
             </IconButton>
           </li>
         </ul>

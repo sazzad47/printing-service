@@ -14,13 +14,13 @@ function SliderContent({ activeIndex, reviewItems }) {
         >
           <div className="h-full">
 
-          <div className="w-full h-[30%] flex justify-between text-gray-900">
+          <div className="w-full h-[30%] flex flex-col md:flex-row justify-start md:justify-between text-gray-900">
            
             <div className="flex flex-col">
               <Typography className="font-bold text-2xl whitespace-nowrap"> {slide.name} </Typography>
               <Typography className="text-gray-600"> {slide.time} </Typography>
             </div>
-            <div className="w-1/2 flex justify-end">
+            <div className="w-1/2 flex justify-start md:justify-end mt-3">
               <SmallRating/>
             </div>
           </div>

@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+
 const Product = ({ product }) => {
   return (
-    <div className="w-full max-w-sm bg-pink-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full h-full max-w-sm bg-pink-100 border border-gray-200 rounded-lg shadow">
       <div className="w-full h-[15rem] relative">
       <Link to="/">
         <img
@@ -14,7 +15,7 @@ const Product = ({ product }) => {
       </Link>
       </div>
      
-      <div className="px-5 pb-5">
+      <div className="px-5 py-5 h-[calc(100%-15rem)] flex flex-col justify-between">
         <Link className="no-underline" to="/">
           <h5 className="no-underline text-xl font-semibold tracking-tight text-gray-900">
             {product.name}
@@ -72,7 +73,7 @@ const Product = ({ product }) => {
         </div>
         <Typography className="text-xs italic text-gray-900">Starting at</Typography>
         <div className="flex items-center justify-between">
-          <span className="text-3xl font-bold text-gray-900 dark:text-white">
+          <span className="text-xl font-bold text-gray-900 dark:text-white">
              $100/20pc
           </span>
           <Link
@@ -81,6 +82,11 @@ const Product = ({ product }) => {
           >
             Add to card
           </Link>
+        </div>
+        <div>
+      
+       
+        
         </div>
       </div>
     </div>

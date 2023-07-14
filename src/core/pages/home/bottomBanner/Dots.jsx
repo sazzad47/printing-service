@@ -2,7 +2,7 @@ import React from "react";
 
 function Dots({ activeIndex, onclick, sliderImage }) {
   return (
-    <div className="all-dots">
+    <div className="flex w-full justify-center">
       {sliderImage.map((slide, index) => (
         <img
           src={slide.urls}

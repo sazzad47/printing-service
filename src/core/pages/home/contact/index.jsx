@@ -5,7 +5,7 @@ import { Oval } from "react-loader-spinner";
 
 const Contact = () => {
   const { data, isLoading } = useGetCategoriesQuery({});
-  console.log("data", data);
+
   return (
     <>
       {isLoading ? (
@@ -31,8 +31,8 @@ const Contact = () => {
               "url('https://res.cloudinary.com/dhhn4nlmq/image/upload/v1689345445/15518074_5594016_kennp1.jpg')",
           }}
         >
-          <div className="h-screen flex justify-center items-center">
-            <div className="bg-white text-gray-900 text-center mx-4 p-8 rounded shadow-md w-[490px]">
+          <div className="flex justify-center items-center py-[3rem]">
+            <div className="bg-white text-gray-900 text-center mx-4 p-8 rounded shadow-md w-full md:w-[490px]">
               <Typography className="font-bold text-3xl mb-2">
                 {" "}
                 Get in touch{" "}

@@ -19,12 +19,12 @@ function Reviews(props) {
   }, [activeIndex]);
 
   return (
-    <div className="w-full h-auto px-[5rem] my-[3rem] py-[3rem]">
-      <div className="flex gap-5">
-        <div className="w-[40%]">
+    <div className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem]">
+      <div className="flex flex-col md:flex-row gap-5">
+        <div className="w-full md:w-[40%]">
           <Intro />
         </div>
-        <div className="w-[60%] flex flex-col">
+        <div className="w-full md:w-[60%] flex flex-col">
           <div className="slider-container w-full">
             <SliderContent
               activeIndex={activeIndex}

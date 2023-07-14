@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SliderContent from "./SliderContent";
-import {sliderImage} from "./sliderImage";
+import { sliderImage } from "./sliderImage";
 import "./slider.css";
 import Dots from "./Dots";
 
@@ -17,13 +17,18 @@ function Slider(props) {
   }, [activeIndex]);
 
   return (
-    <div className="slider-container my-[3rem]">
-      <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
-      <Dots
-        activeIndex={activeIndex}
-        sliderImage={sliderImage}
-        onclick={(activeIndex) => setActiveIndex(activeIndex)}
-      />
+    <div className="my-[5rem] md:my-[3rem]">
+      <div className="slider-container">
+        <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
+      </div>
+      <div className="mt-5">
+        <Dots
+          activeIndex={activeIndex}
+          sliderImage={sliderImage}
+          onclick={(activeIndex) => setActiveIndex(activeIndex)}
+        />
+      </div>
+     
     </div>
   );
 }

@@ -7,7 +7,7 @@ import { useGetCategoriesQuery } from "../../../state/api/product";
 import CopyRight from "./CopyRight";
 import { MasterCard, Paypal, Visa } from "./SvgIcons";
 import logo from "../../../assets/logo.png";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Map from "./Map";
 import { Oval } from "react-loader-spinner";
 
@@ -32,10 +32,10 @@ const Footer = () => {
           />
         </div>
       ) : (
-        <footer className="w-full h-auto px-[5rem] py-[5rem] bg-white">
+        <footer className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] bg-white">
           <div className="w-full grid grid-cols-1 md:grid-cols-3">
-            <div
-              style={{ borderRight: "1px solid #ffe4e6" }}
+            <Box
+             sx={{ borderRight: 0, md: { borderRight: "1px solid #ffe4e6" } }}
               className="w-full flex justify-start"
             >
               <div className="flex flex-col gap-5">
@@ -54,10 +54,10 @@ const Footer = () => {
                   ))}
                 </div>
               </div>
-            </div>
-            <div
-              style={{ borderRight: "1px solid #ffe4e6" }}
-              className="w-full px-[3rem]"
+            </Box>
+            <Box
+              sx={{ borderRight: 0, md: { borderRight: "1px solid #ffe4e6" } }}
+              className="w-full px-0 md:px-[3rem] mt-[2rem] md:mt-0"
             >
               <div className="flex flex-col gap-5">
                 <h3 className="font-bold text-xl text-fuchsia-900">
@@ -104,8 +104,8 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="w-full justify-center px-[3rem]">
+            </Box>
+            <div className="w-full justify-center px-0 md:px-[3rem] mt-[2rem] md:mt-0">
               <div className="w-full flex justify-center">
                 <img src={logo} height={50} width={80} alt="" />
               </div>
@@ -134,7 +134,6 @@ const Footer = () => {
           </div>
         </footer>
       )}
-
       <CopyRight />
     </>
   );
