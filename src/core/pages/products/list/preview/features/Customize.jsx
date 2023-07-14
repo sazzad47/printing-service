@@ -119,11 +119,12 @@ export default function Customize({ placeholder, setFeatures }) {
     <div>
       <Box
         sx={{
-          bgcolor: theme.palette.primary[600],
+          bgcolor: "#fdf2f8",
+          border: `1px solid #fdf2f8`,
           "&:hover": {
-            backgroundColor: theme.palette.primary[800],
+            border: `1px solid #701a75`,
           },
-          color: "white",
+          color: "black",
         }}
         onClick={handleClickOpen}
         className="w-full h-full relative p-5 rounded-md cursor-pointer flex flex-col gap-5 items-center justify-center"

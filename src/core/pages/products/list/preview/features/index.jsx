@@ -91,15 +91,15 @@ const Features = ({
                       <Box
                         key={index}
                         sx={{
-                          border: `1px solid ${theme.palette.primary[600]}`,
-                          bgcolor: theme.palette.primary[600],
+                          border: `1px solid #fdf2f8`,
+                          bgcolor: "#fdf2f8",
                           "&:hover": {
                             border: `1px solid ${theme.palette.secondary[200]}`,
                           },
-                          color: "white",
+                          color: "black",
                        
                         ...(selectedOption[item.placeholder] === option.title && {
-                          border: `1px solid ${theme.palette.secondary[200]}`,
+                          border: `1px solid #701a75`,
                         }),
                         }}
                         onClick={() =>
