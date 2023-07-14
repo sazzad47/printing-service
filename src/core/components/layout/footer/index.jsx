@@ -40,7 +40,7 @@ const Footer = () => {
             >
               <div className="flex flex-col gap-5">
                 <h3 className="font-bold text-xl text-fuchsia-900">
-                  Digital Printing
+                  Printing Services
                 </h3>
                 <div className="flex flex-col gap-3">
                   {data?.slice(0, 10).map((item, index) => (

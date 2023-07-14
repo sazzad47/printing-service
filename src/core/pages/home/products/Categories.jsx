@@ -80,7 +80,8 @@ export default function Categories() {
               "& button.Mui-selected": {
                 backgroundColor: "#831843",
               },
-              backgroundColor: "#fdf2f8",
+              backgroundColor: "white",
+              borderTop: 0,
               height: "5rem",
               display: "flex",
               alignItems: "center",
