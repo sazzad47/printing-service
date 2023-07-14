@@ -73,7 +73,8 @@ export default function Categories() {
                 fontSize: "1rem",
                 backgroundColor: "#701a75",
                 margin: "0.7rem",
-                borderRadius: "40px"
+                borderRadius: "40px",
+                boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.25)",
               },
               "& button:focus": { outline: "none" },
               "& button.Mui-selected": {
