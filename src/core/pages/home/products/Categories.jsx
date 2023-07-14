@@ -14,6 +14,8 @@ export default function Categories() {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
 
+  console.log('data', isLoading)
+
   useEffect(() => {
     if (data) {
       const uniqueCategories = [
