@@ -14,10 +14,10 @@ const Intro = () => {
       >
         <img src={google} alt="google" className="w-[180px] h-[180]" />
       </a>
-      <div className="">
-        <Rating height="2rem" width="2rem" />
+      <div className="w-full flex justify-center">
+        <Rating height="1rem" width="1rem" />
       </div>
-      <Typography className="text-gray-700 text-lg">
+      <Typography className="text-gray-700 text-lg mt-4">
         <span className="font-bold text-black">5/5 stars</span> based on 32 reviews
       </Typography>
     </div>

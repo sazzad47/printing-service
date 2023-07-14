@@ -1,6 +1,6 @@
 import { Divider, Typography } from "@mui/material";
 import React from "react";
-import Rating from "./Rating";
+import { SmallRating } from "./Rating";
 
 
 function SliderContent({ activeIndex, reviewItems }) {
@@ -21,7 +21,7 @@ function SliderContent({ activeIndex, reviewItems }) {
               <Typography className="text-gray-600"> {slide.time} </Typography>
             </div>
             <div className="w-1/2 flex justify-end">
-              <Rating height="1rem" width="1rem" />
+              <SmallRating/>
             </div>
           </div>
             <Divider className="bg-gray-200 h-[1px]"/>
