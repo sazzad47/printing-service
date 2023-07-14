@@ -209,8 +209,16 @@ ring-color: #9CA3AF !important;
   position: relative;
 }
 
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
 
-
-
+select {
+  background-image: url("/src/core/assets/arrow-down.svg");
+  background-size: 24px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 8px) center;
+}
 
 
