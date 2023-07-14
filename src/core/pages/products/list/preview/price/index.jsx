@@ -18,18 +18,20 @@ const Price = ({
   isOpen,
 }) => {
   const theme = useTheme();
-  const splitData = (data, numArrays) => {
-    const dataLength = Object.keys(data).length;
+  const splitData = (price, numArrays) => {
+    const sortedPrice = price.sort((a, b) => a.quantity - b.quantity);
+  
+    const dataLength = sortedPrice.length;
     const itemsPerArray = Math.floor(dataLength / numArrays);
-
+  
     const arrays = Array.from({ length: numArrays }, (_, index) => {
       const startIndex = index * itemsPerArray;
       const endIndex = startIndex + itemsPerArray;
-      return Object.values(data).slice(startIndex, endIndex);
+      return sortedPrice.slice(startIndex, endIndex);
     });
-
-    const remainingItems = Object.values(data).slice(numArrays * itemsPerArray);
-
+  
+    const remainingItems = sortedPrice.slice(numArrays * itemsPerArray);
+  
     return {
       array1: arrays[0],
       array2: arrays[1],
@@ -37,6 +39,7 @@ const Price = ({
       array4: remainingItems,
     };
   };
+  
 
   const { array1, array2, array3, array4 } = splitData(price, 3);
 
@@ -90,9 +93,10 @@ const Price = ({
                             margin: 0,
                             padding: 0,
                             marginRight: "7px",
-                            color: "#831843"
+                            color: "black"
                           },
                         }}
+                       
                         label={item.quantity}
                         className="text-gray-900"
                       />
@@ -148,7 +152,7 @@ const Price = ({
                           margin: 0,
                           padding: 0,
                           marginRight: "7px",
-                          color: "#831843"
+                          color: "black"
                         },
                       }}
                       label={item.quantity}
@@ -191,7 +195,7 @@ const Price = ({
                           margin: 0,
                           padding: 0,
                           marginRight: "7px",
-                          color: "#831843"
+                          color: "black"
                         },
                       }}
                       label={item.quantity}
@@ -230,7 +234,7 @@ const Price = ({
                         margin: 0,
                         padding: 0,
                         marginRight: "7px",
-                        color: "#831843"
+                        color: "black"
                       },
                     }}
                     label={item.quantity}
