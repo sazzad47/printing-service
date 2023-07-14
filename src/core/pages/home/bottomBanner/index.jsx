@@ -17,7 +17,7 @@ function Slider(props) {
   }, [activeIndex]);
 
   return (
-    <div className="slider-container">
+    <div className="slider-container my-[3rem]">
       <SliderContent activeIndex={activeIndex} sliderImage={sliderImage} />
       <Dots
         activeIndex={activeIndex}

@@ -26,7 +26,10 @@ const Contact = () => {
       ) : (
         <div
           className="bg-cover bg-center"
-          style={{ backgroundImage: "url('https://res.cloudinary.com/dhhn4nlmq/image/upload/v1689345445/15518074_5594016_kennp1.jpg')" }}
+          style={{
+            backgroundImage:
+              "url('https://res.cloudinary.com/dhhn4nlmq/image/upload/v1689345445/15518074_5594016_kennp1.jpg')",
+          }}
         >
           <div className="h-screen flex justify-center items-center">
             <div className="bg-white text-gray-900 text-center mx-4 p-8 rounded shadow-md w-[490px]">
@@ -74,7 +77,7 @@ const Contact = () => {
                   </select>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                <select
+                  <select
                     placeholder="Artwork Ready?"
                     className="h-[56px] w-full outline-none bg-pink-100 border-0 px-3"
                   >
@@ -96,6 +99,15 @@ const Contact = () => {
                     placeholder="Message"
                     className="min-h-[5rem] w-full outline-none bg-pink-100 border-0 px-3 py-3"
                   />
+                </Grid>
+                <Grid item xs={12}>
+                  <button
+                    className="mb-2 inline-block rounded bg-fuchsia-900 px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                  >
+                   Send
+                  </button>
                 </Grid>
               </Grid>
             </div>
