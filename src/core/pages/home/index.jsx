@@ -1,20 +1,22 @@
-import React from 'react'
-import Hero from './Hero'
-import Service from './Service'
-import Product from './products'
-import Reviews from './reviews'
-import Contact from './contact'
+import React from "react";
+// import Hero from "./Hero";
+import Service from "./Service";
+import Product from "./products";
+import Reviews from "./reviews";
+import Contact from "./contact";
+import Banner from "./banner";
 
 const Home = () => {
   return (
     <>
-      <Hero/>
-      <Service/>
-      <Product/>
-      <Reviews/>
-      <Contact/>
+      <Banner />
+      {/* <Hero /> */}
+      <Service />
+      <Product />
+      <Reviews />
+      <Contact />
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

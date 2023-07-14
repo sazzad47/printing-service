@@ -1,7 +1,8 @@
 
-
 .slider-container {
+  height: 50vh;
   width: 100%;
+  position: relative;
   margin: auto;
   overflow: hidden;
 }
@@ -17,8 +18,7 @@
 .slides {
   height: 50vh;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  position: relative;
 }
 
 .slide-image {
