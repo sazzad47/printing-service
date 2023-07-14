@@ -71,7 +71,9 @@ export default function Categories() {
                 color: "white",
                 textTransform: "capitalize",
                 fontSize: "1rem",
-                backgroundColor: "#701a75"
+                backgroundColor: "#701a75",
+                margin: "0.7rem",
+                borderRadius: "40px"
               },
               "& button:focus": { outline: "none" },
               "& button.Mui-selected": {
