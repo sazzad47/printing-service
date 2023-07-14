@@ -68,13 +68,14 @@ export default function Categories() {
             }}
             sx={{
               "& button": {
-                color: "#db2777",
+                color: "white",
                 textTransform: "capitalize",
                 fontSize: "1rem",
+                backgroundColor: "#701a75"
               },
               "& button:focus": { outline: "none" },
               "& button.Mui-selected": {
-                bgColor: "#701a75",
+                backgroundColor: "#831843",
               },
               backgroundColor: "#fdf2f8",
               height: "5rem",
