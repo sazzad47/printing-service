@@ -5,25 +5,26 @@ import { CSSTransition } from "react-transition-group";
 import ProductLIst from "./ProductLIst";
 import SearchBar from "./SearchBar";
 import Cart from "./Cart";
-import { IconButton } from "@mui/material";
+import { IconButton, useMediaQuery } from "@mui/material";
 import {AiOutlineMenuUnfold} from "react-icons/ai";
 import ContactInfo from "./ContactInfo";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open] = useState(false);
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
   return (
     <>
     <div className="hidden md:block">
     <ContactInfo/>
     </div>
     <nav className="bg-white border-gray-300">
-      <div className="h-[15vh] flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+      <div className=" flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
         <Link to="/" className="flex items-center">
           <img
             src={logo}
-            height={50}
-            width={80}
+            height={isNonMobile ? 50 : 40}
+            width={isNonMobile? 80: 70}
             className="mr-3"
             alt="Logo"
           />

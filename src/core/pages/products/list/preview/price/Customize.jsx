@@ -8,31 +8,28 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { Box, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ErrorIcon from "@mui/icons-material/Error";
 import InputField from "../../../../../components/InputField";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.primary[500],
+    backgroundColor: "white",
+    borderTop: "1px solid #e5e5e5",
   },
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
-    backgroundColor: theme.palette.primary[600],
+    backgroundColor: "white",
   },
 }));
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
-  const theme = useTheme();
 
   return (
-    <DialogTitle
-      sx={{ m: 0, p: 2, backgroundColor: theme.palette.primary[600] }}
-      {...other}
-    >
-      <Typography className="text-xl">{children}</Typography>
+    <DialogTitle sx={{ m: 0, p: 2, backgroundColor: "white" }} {...other}>
+      <Typography className="text-xl text-gray-900">{children}</Typography>
       {onClose ? (
         <IconButton
           aria-label="close"
@@ -57,7 +54,6 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function Customize({ setPrice, data }) {
-  const theme = useTheme();
   const [newValue, setNewValue] = React.useState({
     quantity: null,
   });
@@ -105,11 +101,12 @@ export default function Customize({ setPrice, data }) {
     <div>
       <Button
         sx={{
-          backgroundColor: theme.palette.primary[700],
-          color: "white",
+          bgcolor: "#fdf2f8",
+          border: `1px solid #fdf2f8`,
           "&:hover": {
-            backgroundColor: theme.palette.primary[800], // Add the desired hover background color
+            border: `1px solid #701a75`,
           },
+          color: "black",
         }}
         className="mt-[30px]"
         onClick={handleClickOpen}
@@ -151,7 +148,7 @@ export default function Customize({ setPrice, data }) {
                 <div>
                   <label
                     htmlFor="Quantity"
-                    className="block mb-3 text-sm font-semibold text-secondaryTheme"
+                    className="block mb-3 text-sm font-semibold text-gray-900"
                   >
                     Quantity
                   </label>
@@ -169,7 +166,7 @@ export default function Customize({ setPrice, data }) {
                 </div>
                 <Button
                   disabled={!newValue.quantity}
-                  className="normal-case text-slate-200 bg-stone-500 hover:bg-stone-600"
+                  className="normal-case inline-block rounded bg-fuchsia-900 px-12 pt-4 pb-3.5 text-sm font-medium leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
                   type="submit"
                   fullWidth
                   variant="contained"
@@ -184,8 +181,8 @@ export default function Customize({ setPrice, data }) {
         </DialogContent>
         <DialogActions>
           <Button
-            variant="contained"
-            sx={{ backgroundColor: theme.palette.primary[700] }}
+            variant="outlined"
+            sx={{ color: "black" }}
             autoFocus
             onClick={handleClose}
           >

@@ -1,9 +1,10 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const Ribbon = ({ content }) => {
   const theme = useTheme();
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
   return (
     <Box
       sx={{
@@ -13,7 +14,7 @@ const Ribbon = ({ content }) => {
         padding: "10px 40px",
         textAlign: "center",
         backgroundColor: theme.palette.primary[800],
-        fontSize: "1.5rem",
+        fontSize: isNonMobile? "1.5rem":"1.2rem",
         fontWeight: "bold",
         "::before": {
           content: '""',

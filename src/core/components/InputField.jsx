@@ -32,9 +32,9 @@ const InputField = ({ inputProps }) => {
             color: "rgb(214 211 209)",
           },
           "& .MuiOutlinedInput-root": {
-            color: "white",
+            color: "black",
             "& fieldset": {
-              color: "white",
+              color: "black",
               borderColor: "rgb(120 113 108)",
             },
             "&:hover fieldset": {

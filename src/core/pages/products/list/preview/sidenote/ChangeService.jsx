@@ -15,24 +15,24 @@ import { AiOutlineSketch, AiOutlineCloudUpload } from "react-icons/ai";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.primary[500],
+    backgroundColor: "white",
+    borderTop: "1px solid #e5e5e5",
   },
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
-    backgroundColor: theme.palette.primary[600],
+    backgroundColor: "white",
   },
 }));
 
 function BootstrapDialogTitle(props) {
   const { children, onClose, ...other } = props;
-  const theme = useTheme();
 
   return (
     <DialogTitle
-      sx={{ m: 0, p: 2, backgroundColor: theme.palette.primary[600] }}
+    sx={{ m: 0, p: 2, backgroundColor: "white" }}
       {...other}
     >
-      <Typography className="text-xl">{children}</Typography>
+      <Typography className="text-xl text-gray-900">{children}</Typography>
       {onClose ? (
         <IconButton
           aria-label="close"
@@ -138,8 +138,8 @@ export default function ChangeService({ pathname }) {
         </DialogContent>
         <DialogActions>
           <Button
-            variant="contained"
-            sx={{ backgroundColor: theme.palette.primary[700] }}
+            variant="outlined"
+            sx={{ color: "black" }}
             autoFocus
             onClick={handleClose}
           >

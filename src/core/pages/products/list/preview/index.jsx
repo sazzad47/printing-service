@@ -25,7 +25,6 @@ const Preview = () => {
   ]);
   const [featuresState, setFeaturesState] = useState({});
   const [priceState, setPriceState] = useState({});
-  console.log("data", data);
 
   useEffect(() => {
     if (data) {
@@ -53,27 +52,28 @@ const Preview = () => {
           />
         </div>
       ) : (
-        <div className="my-[1.5rem] mx-[2.5rem]">
+        <div className="px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem]">
           <div className="w-full flex justify-between">
             <Header title={`${data.name}`} />
           </div>
           <div className="mt-[1rem] flex flex-col gap-5">
-            <div className="grid grid-cols-2 h-[25rem]">
-              <div className="h-full w-full bg-red-200">
+            <div className="flex flex-col h-auto md:h-[25rem]">
+              <div className="h-full w-full bg-red-200 order-2">
                 <Description data={data} />
               </div>
-              <div className="w-full h-full relative">
-                <div className="absolute w-full h-full flex items-center justify-center">
+              <div className="w-full h-full relative order-1 text-gray-900">
+                <div className="relative md:absolute w-full h-full flex items-center justify-center">
                   <img
                     src={data.cover}
                     alt="cover"
                     className="object-contain w-auto h-auto max-w-full max-h-full"
                   />
                 </div>
+             
               </div>
             </div>
             <div className="relative min-h-auto flex w-full gap-5 mt-10">
-              <div className="w-[70%] h-auto flex flex-col gap-5">
+              <div className="w-full md:w-[70%] h-auto flex flex-col gap-5">
                 {query === "let_us_design" && (
                   <Service
                     data={data}
@@ -93,7 +93,7 @@ const Preview = () => {
                   setFeaturesState={setFeaturesState}
                 />
               </div>
-              <div className="sticky min-w-[30%] h-[60vh] top-0 flex justify-center items-center">
+              <div className="hidden sticky min-w-[30%] h-[60vh] top-0 md:flex justify-center items-center">
                 <SideNote features={features} featuresState={featuresState} />
               </div>
             </div>
