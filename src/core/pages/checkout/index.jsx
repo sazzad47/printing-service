@@ -42,7 +42,7 @@ const Checkout = () => {
                   {" "}
                   Summary{" "}
                 </Typography>
-                <Link className="no-underline">
+                <Link to="/cart" className="no-underline">
                 <Typography className="text-center text-gray-600 text-lg font-bold">
                   {cartItems.length} items
                 </Typography>

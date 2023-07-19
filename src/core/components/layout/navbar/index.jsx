@@ -98,7 +98,7 @@ const Navbar = () => {
         timeout={500}
         classNames="nav-product-items"
       >
-        <ProductLIst />
+        <ProductLIst setOpen={setOpen} />
       </CSSTransition>
     </>
   );
