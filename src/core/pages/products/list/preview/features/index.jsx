@@ -55,11 +55,19 @@ const Features = ({
         block: "start",
       });
     } else if (nextPlaceholderIndex === features.length) {
-      setIsOpenSubvariants(true);
-      subvariantsRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      if (variant.subvariant && variant.subvariant.placeholder !== "") {
+        setIsOpenSubvariants(true);
+        subvariantsRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      } else {
+        setIsOpenPrice(true);
+        priceRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
     }
   };
 

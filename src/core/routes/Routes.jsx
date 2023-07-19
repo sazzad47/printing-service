@@ -15,6 +15,7 @@ import Faq from "../pages/faq";
 import ProductsByCategory from "../pages/productByCategory";
 import Orders from "../user/account/order/list";
 import Transaction from "../user/account/transaction/list";
+import Cart from "../pages/cart";
 
 const routes = [
  
@@ -39,6 +40,7 @@ const publicRoutes = [
   { path: "/products/list/:id", component: <ViewProduct /> },
   { path: "/products/list/:category", component: <ProductsByCategory /> },
   { path: "/faq", component: <Faq /> },
+  { path: "/cart", component: <Cart /> },
 ];
 
 export { routes, publicRoutes };
