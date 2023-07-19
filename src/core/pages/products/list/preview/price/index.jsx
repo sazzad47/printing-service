@@ -147,7 +147,7 @@ const Price = ({
                       </Typography>
                       <Typography className="text-xs">
                         {" "}
-                        ${item.price / item.quantity}/pc{" "}
+                        ${(item.price / item.quantity).toFixed(2)}/pc{" "}
                       </Typography>
                     </div>
                   </Box>
@@ -193,7 +193,7 @@ const Price = ({
                       </Typography>
                       <Typography className="text-xs">
                         {" "}
-                        ${item.price / item.quantity}/pc{" "}
+                        ${(item.price / item.quantity).toFixed(2)}/pc{" "}
                       </Typography>
                     </div>
                   </Box>
@@ -239,7 +239,7 @@ const Price = ({
                       </Typography>
                       <Typography className="text-xs">
                         {" "}
-                        ${item.price / item.quantity}/pc{" "}
+                        ${(item.price / item.quantity).toFixed(2)}/pc{" "}
                       </Typography>
                     </div>
                   </Box>
@@ -280,7 +280,7 @@ const Price = ({
                     </Typography>
                     <Typography className="text-xs">
                       {" "}
-                      ${item.price / item.quantity}/pc{" "}
+                      ${(item.price / item.quantity).toFixed(2)}/pc{" "}
                     </Typography>
                   </div>
                 </Box>

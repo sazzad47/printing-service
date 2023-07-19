@@ -55,7 +55,7 @@ const Features = ({
         block: "start",
       });
     } else if (nextPlaceholderIndex === features.length) {
-      if (variant.subvariant && variant.subvariant.placeholder !== "") {
+      if (subvariants.placeholder !== "" && subvariantsRef.current) {
         setIsOpenSubvariants(true);
         subvariantsRef.current.scrollIntoView({
           behavior: "smooth",
