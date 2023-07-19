@@ -11,19 +11,12 @@ const cartSlice = createSlice({
       state.items.push(newItem);
     },
     deleteItem: (state, action) => {
-      const itemId = action.payload;
-      state.items = state.items.filter((item) => item.id !== itemId);
-    },
-    duplicateItem: (state, action) => {
-      const itemId = action.payload;
-      const itemToDuplicate = state.items.find((item) => item.id === itemId);
-      if (itemToDuplicate) {
-        state.items.push(itemToDuplicate);
-      }
+      state.items.splice(action.payload, 1)
+
     },
   },
 });
 
-export const { addItem, deleteItem, duplicateItem } = cartSlice.actions;
+export const { addItem, deleteItem } = cartSlice.actions;
 
 export default cartSlice.reducer;

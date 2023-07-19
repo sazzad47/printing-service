@@ -32,9 +32,6 @@ const Preview = () => {
   const [featuresState, setFeaturesState] = useState({});
 
   const handleAddToCart = () => {
-    const existingCartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    existingCartItems.push(featuresState);
-    localStorage.setItem("cart", JSON.stringify(existingCartItems));
     dispatch(addItem(featuresState));
     navigate("/cart");
   };
@@ -56,6 +53,16 @@ const Preview = () => {
     }
   }, [variants]);
 
+  useEffect(() => {
+    if (data) {
+      setFeaturesState(prevState => ({
+        ...prevState,
+        name: data.name,
+        photo: data.photo,
+      }));
+    }
+  }, [data]);
+  
   return (
     <>
       {isGetProductLoading ? (
