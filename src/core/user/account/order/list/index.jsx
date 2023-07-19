@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, useTheme } from "@mui/material";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { useGetCategoriesQuery } from "../../../../state/api/product";
 import Layout from "../../Layout";
 import { Oval } from "react-loader-spinner";
