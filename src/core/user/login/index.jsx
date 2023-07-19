@@ -61,7 +61,7 @@ export default function SignIn() {
   return (
     <div className="p-5 flex justify-center items-center w-full h-screen">
       <img src={authBg} alt="auth" className="absolute w-full h-full" />
-      <div className="z-10 bg-white w-full sm:w-[30rem] p-5 flex items-center justify-center">
+      <div className="z-[3] bg-white w-full sm:w-[30rem] p-5 flex items-center justify-center">
         <div className="flex flex-col items-center">
           <Typography
             component="h1"
