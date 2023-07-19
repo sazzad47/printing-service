@@ -23,6 +23,7 @@ const Preview = () => {
   const { data, isLoading: isGetProductLoading } = useGetProductQuery({ id });
   const [features, setFeatures] = React.useState([...(data?.features || [])]);
   const [variants, setVariants] = React.useState(data?.variants);
+  const [subvariants, setSubvariants] = useState({});
   const [price, setPrice] = React.useState([...(data?.price || [])]);
   const [services, setServices] = React.useState([
     ...(data?.design_services || []),
@@ -49,6 +50,8 @@ const Preview = () => {
       setFeatures((prevFeatures) => [variants, ...prevFeatures]);
     }
     }, [variants]);
+
+    
 
   return (
     <>
@@ -102,6 +105,8 @@ const Preview = () => {
                   setPrice={setPrice}
                   features={features}
                   setFeatures={setFeatures}
+                  subvariants={subvariants}
+                  setSubvariants={setSubvariants}
                   featuresState={featuresState}
                   setFeaturesState={setFeaturesState}
                 />

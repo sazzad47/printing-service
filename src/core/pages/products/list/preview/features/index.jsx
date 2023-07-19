@@ -13,12 +13,16 @@ const Features = ({
   setPrice,
   features,
   setFeatures,
+  subvariants,
+  setSubvariants,
   featuresState,
   setFeaturesState,
 }) => {
   const theme = useTheme();
   const priceRef = useRef(null);
+  const subvariantsRef = useRef(null);
   const [isOpenPrice, setIsOpenPrice] = useState(false);
+  const [isOpenSubvariants, setIsOpenSubvariants] = useState(false);
   const [selectedOption, setSelectedOption] = useState({});
 
   const handleBoxClick = (placeholder, title, index, variant) => {
@@ -27,15 +31,12 @@ const Features = ({
       [placeholder]: title,
     }));
 
-    if (variant.subvariant) {
-      setFeatures((prevFeatures) => {
-        const updatedFeatures = prevFeatures.slice();
-        const variantIndex = updatedFeatures.findIndex((f) => f === variant);
-        if (variantIndex !== -1) {
-          updatedFeatures.splice(variantIndex + 1, 0, variant.subvariant);
-        }
-        return updatedFeatures;
-      });
+    if (variant.subvariant && variant.subvariant.placeholder !== "") {
+      setSubvariants(variant.subvariant);
+    }
+
+    if (variant.price) {
+      setPrice([...variant.price]);
     }
 
     setSelectedOption((prevSelectedOption) => ({
@@ -54,12 +55,29 @@ const Features = ({
         block: "start",
       });
     } else if (nextPlaceholderIndex === features.length) {
-      setIsOpenPrice(true);
-      priceRef.current.scrollIntoView({
+      setIsOpenSubvariants(true);
+      subvariantsRef.current.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
     }
+  };
+
+  const handleSubvariantBox = (placeholder, variant) => {
+    if (variant.price) {
+      setPrice([...variant.price]);
+    }
+
+    setSelectedOption((prevSelectedOption) => ({
+      ...prevSelectedOption,
+      [placeholder]: variant.title, // Store the selected option for the current placeholder
+    }));
+
+    setIsOpenPrice(true);
+    priceRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -79,6 +97,10 @@ const Features = ({
           paddingBottom: "2rem",
         }}
       >
+        <Typography className="text-gray-900">
+          {" "}
+          dekhto {subvariants.placeholder && subvariants.placeholder}{" "}
+        </Typography>
         {features?.map((item, placeholderIndex) => {
           const isOpenFeatures =
             placeholderIndex === 0 ||
@@ -106,18 +128,19 @@ const Features = ({
                             border: `1px solid ${theme.palette.secondary[200]}`,
                           },
                           color: "black",
-                       
-                        ...(selectedOption[item.placeholder] === option.title && {
-                          border: `1px solid #701a75`,
-                        }),
+
+                          ...(selectedOption[item.placeholder] ===
+                            option.title && {
+                            border: `1px solid #701a75`,
+                          }),
                         }}
                         onClick={() =>
                           handleBoxClick(
                             item.placeholder,
                             option.title,
                             placeholderIndex,
+                            option,
                             item
-                            
                           )
                         }
                         className="relative p-5 rounded-md cursor-pointer flex flex-col gap-1 items-center"
@@ -168,6 +191,71 @@ const Features = ({
             </>
           );
         })}
+
+        {subvariants.placeholder && (
+          <div className="flex flex-col gap-3" ref={subvariantsRef}>
+            <div className="relative h-[5rem]">
+              <Placeholder text={subvariants.placeholder} />
+            </div>
+            <Collapse isOpened={isOpenSubvariants}>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-5">
+                {subvariants?.value?.map((option, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      border: `1px solid #fdf2f8`,
+                      bgcolor: "#fdf2f8",
+                      "&:hover": {
+                        border: `1px solid ${theme.palette.secondary[200]}`,
+                      },
+                      color: "black",
+
+                      ...(selectedOption[subvariants.placeholder] ===
+                        option.title && {
+                        border: `1px solid #701a75`,
+                      }),
+                    }}
+                    onClick={() =>
+                      handleSubvariantBox(subvariants.placeholder, option)
+                    }
+                    className="relative p-5 rounded-md cursor-pointer flex flex-col gap-1 items-center"
+                  >
+                    {option.is_popular && (
+                      <span
+                        style={{
+                          color: theme.palette.text.primary,
+                          background: theme.palette.secondary[700],
+                        }}
+                        className="absolute h-auto w-auto px-2 py-1 text-xs rounded-full top-2 right-2"
+                      >
+                        Popular
+                      </span>
+                    )}
+                    <div className="w-[100px] h-[100px] relative">
+                      {option.photo ? (
+                        <img
+                          src={option.photo}
+                          alt="format"
+                          className="w-full h-full absolute"
+                        />
+                      ) : (
+                        <AiOutlineFileImage className="w-full h-full" />
+                      )}
+                    </div>
+
+                    <Typography align="center" className="font-bold text-lg">
+                      {option.title}
+                    </Typography>
+                    <Typography align="center" className="text-xs">
+                      {option.description}
+                    </Typography>
+                  </Box>
+                ))}
+              </div>
+            </Collapse>
+          </div>
+        )}
+
         <div ref={priceRef} className="h-auto">
           <Price
             data={data}
