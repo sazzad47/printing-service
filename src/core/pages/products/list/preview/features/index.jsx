@@ -11,8 +11,6 @@ const Features = ({
   data,
   price,
   setPrice,
-  priceState,
-  setPriceState,
   features,
   setFeatures,
   featuresState,
@@ -23,11 +21,22 @@ const Features = ({
   const [isOpenPrice, setIsOpenPrice] = useState(false);
   const [selectedOption, setSelectedOption] = useState({});
 
-  const handleBoxClick = (placeholder, title, index) => {
+  const handleBoxClick = (placeholder, title, index, variant) => {
     setFeaturesState((prevFeaturesState) => ({
       ...prevFeaturesState,
       [placeholder]: title,
     }));
+
+    if (variant.subvariant) {
+      setFeatures((prevFeatures) => {
+        const updatedFeatures = prevFeatures.slice();
+        const variantIndex = updatedFeatures.findIndex((f) => f === variant);
+        if (variantIndex !== -1) {
+          updatedFeatures.splice(variantIndex + 1, 0, variant.subvariant);
+        }
+        return updatedFeatures;
+      });
+    }
 
     setSelectedOption((prevSelectedOption) => ({
       ...prevSelectedOption,
@@ -106,7 +115,9 @@ const Features = ({
                           handleBoxClick(
                             item.placeholder,
                             option.title,
-                            placeholderIndex
+                            placeholderIndex,
+                            item
+                            
                           )
                         }
                         className="relative p-5 rounded-md cursor-pointer flex flex-col gap-1 items-center"
@@ -163,8 +174,8 @@ const Features = ({
             isOpen={isOpenPrice}
             price={price}
             setPrice={setPrice}
-            priceState={priceState}
-            setPriceState={setPriceState}
+            featuresState={featuresState}
+            setFeaturesState={setFeaturesState}
           />
         </div>
       </Box>

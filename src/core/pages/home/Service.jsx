@@ -7,7 +7,7 @@ import {TbTruckDelivery} from "react-icons/tb";
 
 const Service = () => {
   return (
-   <div className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] bg-white">
+   <div className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] mb-[3rem] bg-white">
     <div className="w-full flex flex-col gap-[3rem]">
      <div>
       <h3 className="text-3xl font-bold text-center text-fuchsia-900">How We Work</h3>

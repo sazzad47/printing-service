@@ -5,7 +5,7 @@ const Product = () => {
 
   return (
     <>   
-        <div className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] bg-white">
+        <div id="products" className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] bg-white">
           <div className="w-full flex flex-col gap-[3rem]">
             <div>
               <h3 className="text-3xl font-bold text-center text-fuchsia-900">

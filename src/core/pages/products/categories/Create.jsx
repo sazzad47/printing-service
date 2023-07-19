@@ -89,7 +89,7 @@ const Create = () => {
               <Grid item xs={12} md={6}>
                 <label
                   htmlFor="name"
-                  className="block mb-3 text-sm font-semibold text-secondaryTheme"
+                  className="block mb-3 text-sm font-semibold text-gray-900"
                 >
                   Name
                 </label>
@@ -190,7 +190,7 @@ const InputField = ({ inputProps }) => {
         }}
       />
       {errorMessages[name] && errorMessages[name] !== "" && (
-        <Grid className="flex items-center mt-2 gap-2 text-secondaryTheme">
+        <Grid className="flex items-center mt-2 gap-2 text-gray-900">
           <ErrorIcon />
           <Typography className="p-0 text-sm">{errorMessages[name]}</Typography>
         </Grid>

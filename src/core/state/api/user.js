@@ -10,17 +10,27 @@ export const userApi = createApi({
       query: (data) => ({
         url: "token/refresh/",
         method: "POST",
-        body: JSON.stringify(data),
+        body: data,
         headers: {
           "Content-type": "application/json",
         },
       }),
     }),
-    verifyLogin: builder.mutation({
+    registerUser: builder.mutation({
       query: (data) => ({
-        url: "admin/verify/",
+        url: "register/",
         method: "POST",
-        body: JSON.stringify(data),
+        body: data,
+        headers: {
+          "Content-type": "application/json",
+        },
+      }),
+    }),
+    activateAccount: builder.mutation({
+      query: (data) => ({
+        url: `verify-email/${data.otp}/`,
+        method: "POST",
+        body: data,
         headers: {
           "Content-type": "application/json",
         },
@@ -28,9 +38,9 @@ export const userApi = createApi({
     }),
     login: builder.mutation({
       query: (data) => ({
-        url: "admin/login/",
+        url: "login/",
         method: "POST",
-        body: JSON.stringify(data),
+        body: data,
         headers: {
           "Content-type": "application/json",
         },
@@ -40,7 +50,7 @@ export const userApi = createApi({
       query: ({ userData, access_token }) => ({
         url: "changepassword/",
         method: "POST",
-        body: JSON.stringify(userData),
+        body: userData,
         headers: {
           "Content-type": "application/json",
           authorization: `Bearer ${access_token}`,
@@ -51,7 +61,7 @@ export const userApi = createApi({
       query: ({ userData, token, id }) => ({
         url: `reset-password/${id}/${token}/`,
         method: "POST",
-        body: JSON.stringify(userData),
+        body: userData,
         headers: {
           "Content-type": "application/json",
         },
@@ -61,7 +71,7 @@ export const userApi = createApi({
       query: (data) => ({
         url: "send-reset-password-email/",
         method: "POST",
-        body: JSON.stringify(data),
+        body: data,
         headers: {
           "Content-type": "application/json",
         },
@@ -71,7 +81,7 @@ export const userApi = createApi({
       query: ({ userData, access_token }) => ({
         url: "billing-address/",
         method: "POST",
-        body: JSON.stringify(userData),
+        body: userData,
         headers: {
           "Content-type": "application/json",
           authorization: `Bearer ${access_token}`,
@@ -82,7 +92,7 @@ export const userApi = createApi({
       query: ({ userData, access_token }) => ({
         url: "billing-address/update/",
         method: "PUT",
-        body: JSON.stringify(userData),
+        body: userData,
         headers: {
           "Content-type": "application/json",
           authorization: `Bearer ${access_token}`,
@@ -126,19 +136,119 @@ export const userApi = createApi({
         },
       }),
     }),
+    createOrder: builder.mutation({
+      query: ({ userData, access_token }) => {
+        const formData = new FormData();
+        for (const key in userData) {
+          const value = userData[key];
+          if (value instanceof File) {
+            formData.append(key, value, value.name);
+          } else if (Array.isArray(value)) {
+            formData.append(key, JSON.stringify(value));
+          } else if (value instanceof Date) {
+            formData.append(key, value.toISOString().slice(0, 10));
+          } else if (value !== null && value !== undefined) {
+            formData.append(key, value.toString());
+          }
+        }
+
+        return {
+          url: "orders/create/",
+          method: "POST",
+          body: formData,
+          headers: {
+            authorization: `Bearer ${access_token}`,
+          },
+        };
+      },
+    }),
+    updateOrder: builder.mutation({
+      query: ({ userData, access_token, id }) => {
+        const formData = new FormData();
+        for (const key in userData) {
+          const value = userData[key];
+          if (value instanceof File) {
+            formData.append(key, value, value.name);
+          } else if (Array.isArray(value)) {
+            formData.append(key, JSON.stringify(value));
+          } else if (value instanceof Date) {
+            formData.append(key, value.toISOString().slice(0, 10));
+          } else if (value !== null && value !== undefined) {
+            formData.append(key, value.toString());
+          }
+        }
+
+        return {
+          url: `orders/edit/${id}/`,
+          method: "PUT",
+          body: formData,
+          headers: {
+            authorization: `Bearer ${access_token}`,
+          },
+        };
+      },
+    }),
+    createPaymentSession: builder.mutation({
+      query: ({ id }) => ({
+        url: `create-payment/${id}/`,
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+      }),
+    }),
+    getOrders: builder.query({
+      query: ({ access_token }) => ({
+        url: "orders/",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${access_token}`,
+        },
+      }),
+    }),
+    getOrderDetails: builder.query({
+      query: ({ access_token, id }) => ({
+        url: `orders/${id}/`,
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${access_token}`,
+        },
+      }),
+    }),
+    getTransactions: builder.query({
+      query: ({ access_token }) => ({
+        url: "transactions/",
+        method: "GET",
+        headers: {
+          "Content-type": "application/json",
+          authorization: `Bearer ${access_token}`,
+        },
+      }),
+    }),
   }),
 });
+  
 
 export const {
   useRefreshTokenMutation,
+  useRegisterUserMutation,
   useLoginMutation,
-  useVerifyLoginMutation,
   useChangePasswordMutation,
   useResetPasswordMutation,
   useSendPasswordResetEmailMutation,
+  useActivateAccountMutation,
   useGetBillingAddressQuery,
   useCreateBillingAddressMutation,
   useUpdateBillingAddressMutation,
   useGetProfileQuery,
   useUpdateProfileMutation,
+  useCreateOrderMutation,
+  useCreatePaymentSessionMutation,
+  useGetOrderDetailsQuery,
+  useGetOrdersQuery,
+  useGetTransactionsQuery,
+  useUpdateOrderMutation,
+
 } = userApi;

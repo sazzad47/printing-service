@@ -1,55 +1,44 @@
+import Register from "../user/register";
+import ActivateAccount from "../user/activateAccount";
+import Login from "../user/login";
+import ResetPassword from "../user/resetPassword";
+import SendResetPasswordEmail from "../user/sendResetPasswordEmail";
 import Home from "../pages/home";
-import Pendings from "../pages/pendings";
-import Transactions from "../pages/transactions";
-import Login from "../pages/login";
-import ResetPasswordEmail from "../pages/resetPassword";
-import ResetPasswordPage from "../pages/resetPassword/ResetPassword";
-import Settings from "../pages/settings";
-import Reviews from "../pages/reviews";
+import Settings from "../user/account/settings";
 import Categories from "../pages/products/categories";
-import CreateCategory from "../pages/products/categories/Create";
-import EditCategory from "../pages/products/categories/Edit";
 import ProductList from "../pages/products/list";
-import CreateProduct from "../pages/products/list/Create";
-import EditProduct from "../pages/products/list/Edit";
 import ViewProduct from "../pages/products/list/preview";
-
+import About from "../pages/about";
+import Contact from "../pages/contact";
+import Payment from "../pages/payment";
+import Faq from "../pages/faq";
+import ProductsByCategory from "../pages/productByCategory";
+import Orders from "../user/account/order/list";
+import Transaction from "../user/account/transaction/list";
 
 const routes = [
-    { path: "/", component: <Home /> },
-    { path: "/home", component: <Home /> },
-    { path: "/products/categories", component: <Categories /> },
-    { path: "/products/categories/create", component: <CreateCategory /> },
-    { path: "/products/categories/:id/edit", component: <EditCategory /> },
-    { path: "/products/list", component: <ProductList /> },
-    { path: "/products/list/create", component: <CreateProduct /> },
-    { path: "/products/list/:id/edit", component: <EditProduct /> },
-    { path: "/products/list/:id/preview", component: <ViewProduct /> },
-    { path: "/orders/pending", component: <Pendings /> },
-    { path: "/transactions", component: <Transactions /> },
-    { path: "/reviews", component: <Reviews /> },
-    { path: "/settings", component: <Settings /> },
-]
+ 
+  { path: "/account", component: <Orders /> },
+  { path: "/transactions", component: <Transaction /> },
+  { path: "/settings", component: <Settings /> },
+];
 
 const publicRoutes = [
-    // Authentication Page
-    { path: "/login", component: <Login /> },
-    { path: "/reset-password-email", component: <ResetPasswordEmail /> },
-    { path: "/reset-password/:id/:token", component: <ResetPasswordPage /> },
-    { path: "/login", component: <Login /> },
-    { path: "/", component: <Home /> },
-    { path: "/home", component: <Home /> },
-    { path: "/products/categories", component: <Categories /> },
-    { path: "/products/categories/create", component: <CreateCategory /> },
-    { path: "/products/categories/:id/edit", component: <EditCategory /> },
-    { path: "/products/list", component: <ProductList /> },
-    { path: "/products/list/create", component: <CreateProduct /> },
-    { path: "/products/list/:id/edit", component: <EditProduct /> },
-    { path: "/products/list/:id/preview", component: <ViewProduct /> },
-    { path: "/orders/pending", component: <Pendings /> },
-    { path: "/transactions", component: <Transactions /> },
-    { path: "/reviews", component: <Reviews /> },
-    { path: "/settings", component: <Settings /> },
-]
+  { path: "/register", component: <Register /> },
+  { path: "/activate-account", component: <ActivateAccount /> },
+  { path: "/login", component: <Login /> },
+  { path: "/reset-password/:id/:token", component: <ResetPassword /> },
+  { path: "/reset-password-email", component: <SendResetPasswordEmail /> },
+  { path: "/", component: <Home /> },
+  { path: "/home", component: <Home /> },
+  { path: "/about", component: <About /> },
+  { path: "/contact", component: <Contact /> },
+  { path: "/payment", component: <Payment /> },
+  { path: "/products/categories", component: <Categories /> },
+  { path: "/products/list", component: <ProductList /> },
+  { path: "/products/list/:id", component: <ViewProduct /> },
+  { path: "/products/list/:category", component: <ProductsByCategory /> },
+  { path: "/faq", component: <Faq /> },
+];
 
-export {routes, publicRoutes};
+export { routes, publicRoutes };

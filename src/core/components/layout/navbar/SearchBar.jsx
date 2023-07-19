@@ -1,18 +1,21 @@
 import { IconButton, Tooltip } from "@mui/material";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState } from "react";
 import { AiOutlineSearch, AiOutlineClose } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Handle form submission if needed
+    navigate(`/products/list/${searchTerm}`)
+    
   };
 
   const handleClearSearch = () => {

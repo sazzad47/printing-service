@@ -40,6 +40,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+  --speed: 500ms; 
+
 }
 
 * {
@@ -58,13 +60,14 @@ body {
   position: absolute;
   top: 20vh;
   left: 0;
-  z-index: -1;
-  transform: translateY(-350px);
+  z-index: 1;
+  transform: translateY(-100%);
 }
 .nav-product-items-enter-active {
   width: 100%;
   transform: translate(0%);
   transition: all 300ms ease;
+  
 
 }
 .nav-product-items-exit {
@@ -74,8 +77,8 @@ body {
 }
 .nav-product-items-exit-active {
   width: 100%;
-  transform: translateY(-350px);
-  z-index: -1;
+  transform: translateY(-100%);
+  z-index: 1;
   transition: all 300ms ease;
 }
 .dropdown {
@@ -134,7 +137,7 @@ body {
  border: 1px solid !important;
  border-color: rgb(120 113 108) !important;
  border-radius: 5px !important;
- color: white !important;
+ color: black !important;
 }
 .common-input.active {
  background-color: rgb(4 47 46) !important;
@@ -153,7 +156,7 @@ body {
  border: 1px solid !important;
  border-color: rgb(120 113 108) !important;
  border-radius: 5px !important;
- color: white !important;
+ color: black !important;
 }
 .common-input-button:hover{
  border-color: rgb(168 162 158) !important;
@@ -162,7 +165,7 @@ body {
  border-color: rgb(214 211 209) !important;
 }
 .phone-input {
-color: #00f6ff;
+color: black;
 background: linear-gradient(
     -168.39deg,
     #ffffff -278.56%,
@@ -221,4 +224,55 @@ select {
   background-position: calc(100% - 8px) center;
 }
 
+/* SideMenu */
+.side-menu {
+  position: absolute;
+  top: 0;
+  width: 300px;
+  right: 0;
+  transition: right var(--speed) ease; /* Update the transition property */
+  overflow: hidden;
+  z-index: 10000 !important;
+}
 
+/* CSSTransition classes */
+.menu-primary-enter {
+  position: absolute;
+  
+}
+
+.menu-primary-enter-active {
+  right: 0;
+  transition: all var(--speed) ease;
+}
+
+.menu-primary-exit {
+  position: absolute;
+}
+
+.menu-primary-exit-active {
+  right: -300px; /* Update the target position */
+  transition: all var(--speed) ease;
+}
+
+.MuiTabs-flexContainer .MuiButtonBase-root:last-child {
+  margin-right: 0 !important;
+}
+
+/* CSSTransition classes  */
+
+.user-dashboard-menu-enter {
+  position: absolute !important;
+  transform: translateX(-110%) !important;
+}
+.user-dashboard-menu-enter-active {
+  transform: translateX(0%) !important;
+  transition: all var(--speed) ease !important;
+}
+.user-dashboard-menu-exit {
+  
+}
+.user-dashboard-menu-exit-active {
+  transform: translateX(-110%) !important;
+  transition: all var(--speed) ease !important;
+}

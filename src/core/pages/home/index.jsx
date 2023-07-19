@@ -1,5 +1,4 @@
-import React from "react";
-// import Hero from "./Hero";
+import React, { useEffect } from "react";
 import Service from "./Service";
 import Product from "./products";
 import Reviews from "./reviews";
@@ -8,20 +7,32 @@ import Banner from "./banner";
 import BottomBanner from "./bottomBanner";
 import WhyLove from "./WhyLove";
 import About from "./About";
+import { useLocation } from "react-router-dom";
 
 const Home = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#products") {
+      const productSection = document.getElementById("product-section");
+      if (productSection) {
+        productSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   return (
-    <>
+    <div className="z-[-1]">
       <Banner />
-      {/* <Hero /> */}
-      <About/>
+      <About />
       <Service />
-      <Product />
+      <div id="product-section">
+        <Product />
+      </div>
       <Reviews />
-      <WhyLove/>
+      <WhyLove />
       <Contact />
-      <BottomBanner/>
-    </>
+      <BottomBanner />
+    </div>
   );
 };
 

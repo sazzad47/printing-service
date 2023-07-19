@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import Placeholder from "../../../../../components/Placeholder";
 import { BsInfoCircle } from "react-icons/bs";
@@ -13,14 +13,35 @@ const Price = ({
   data,
   price,
   setPrice,
-  priceState,
-  setPriceState,
+  featuresState,
+  setFeaturesState,
   isOpen,
 }) => {
   const theme = useTheme();
+  const [selectedQuantity, setSelectedQuantity] = useState("");
+ 
+  const handleQuantityChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedQuantity(selectedValue);
+  
+    // Find the price and quantity in the price array
+    const selectedPrice = price?.find((item) => item.quantity === selectedValue);
+  
+    if (selectedPrice) {
+      // Update the featuresState with price, quantity, and price per quantity
+      setFeaturesState({
+        ...featuresState,
+        price: selectedPrice.price,
+        quantity: selectedPrice.quantity,
+      });
+    }
+   
+  };
+  
+
   const splitData = (price, numArrays) => {
     const sortedPrice = price.sort((a, b) => a.quantity - b.quantity);
-  
+    
     const dataLength = sortedPrice.length;
     const itemsPerArray = Math.floor(dataLength / numArrays);
   
@@ -54,7 +75,6 @@ const Price = ({
         </div>
         <Box className="p-5">
           <div
-            
             className="bg-[#fdf2f8] text-gray-800 flex items-start text-sm gap-2 px-3 py-2 rounded-lg"
           >
             <BsInfoCircle className="text-lg" />
@@ -67,8 +87,9 @@ const Price = ({
         <FormControl className="w-full">
           <RadioGroup
             aria-labelledby="demo-radio-buttons-group-label"
-            defaultValue="female"
             name="radio-buttons-group"
+            value={selectedQuantity} 
+            onChange={(event)=> handleQuantityChange(event)} 
           >
             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3 px-5">
               <div className="">
@@ -93,6 +114,9 @@ const Price = ({
                             margin: 0,
                             padding: 0,
                             marginRight: "7px",
+                            color: "black"
+                          },
+                          "& .MuiSvgIcon-root": {
                             color: "black"
                           },
                         }}
@@ -154,6 +178,9 @@ const Price = ({
                           marginRight: "7px",
                           color: "black"
                         },
+                        "& .MuiSvgIcon-root": {
+                          color: "black"
+                        },
                       }}
                       label={item.quantity}
                       className="text-gray-900"
@@ -197,6 +224,9 @@ const Price = ({
                           marginRight: "7px",
                           color: "black"
                         },
+                        "& .MuiSvgIcon-root": {
+                          color: "black"
+                        },
                       }}
                       label={item.quantity}
                       className="text-gray-900"
@@ -234,6 +264,9 @@ const Price = ({
                         margin: 0,
                         padding: 0,
                         marginRight: "7px",
+                        color: "black"
+                      },
+                      "& .MuiSvgIcon-root": {
                         color: "black"
                       },
                     }}

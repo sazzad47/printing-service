@@ -1,5 +1,5 @@
 import React from "react";
-import { FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import { BiLogoFacebookSquare } from "react-icons/bi";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ import logo from "../../../assets/logo.png";
 import { Box, Typography } from "@mui/material";
 import Map from "./Map";
 import { Oval } from "react-loader-spinner";
+import { BsTwitter } from "react-icons/bs";
 
 const Footer = () => {
   const { data, isLoading } = useGetCategoriesQuery({});
@@ -35,7 +36,7 @@ const Footer = () => {
         <footer className="w-full h-auto px-[1rem] md:px-[5rem] py-[2rem] md:py-[5rem] bg-white">
           <div className="w-full grid grid-cols-1 md:grid-cols-3">
             <Box
-             sx={{ borderRight: 0, md: { borderRight: "1px solid #ffe4e6" } }}
+              sx={{ borderRight: 0, md: { borderRight: "1px solid #ffe4e6" } }}
               className="w-full flex justify-start"
             >
               <div className="flex flex-col gap-5">
@@ -47,7 +48,7 @@ const Footer = () => {
                     <Link
                       className="no-underline text-gray-800"
                       key={index}
-                      to="/"
+                      to={`/products/list/${item.name.replace("/", "-")}`}
                     >
                       <div> {item.name} </div>
                     </Link>
@@ -67,26 +68,51 @@ const Footer = () => {
                   <Link className="no-underline text-gray-800" to="/">
                     <div> Home</div>
                   </Link>
-                  <Link className="no-underline text-gray-800" to="/">
+                  <Link className="no-underline text-gray-800" to="/about">
                     <div> About Us</div>
                   </Link>
-                  <Link className="no-underline text-gray-800" to="/">
+                  <Link className="no-underline text-gray-800" to="/contact">
                     <div> Contact Us</div>
                   </Link>
-                  <Link className="no-underline text-gray-800" to="/">
+                  <Link className="no-underline text-gray-800" to="/payment">
                     <div> Payment</div>
                   </Link>
-                  <Link className="no-underline text-gray-800" to="/">
+                  <Link className="no-underline text-gray-800" to="/faq">
                     <div> FAQ</div>
                   </Link>
                   <h3 className="font-bold text-xl text-fuchsia-900">
                     Connect With Us!
                   </h3>
                   <div className="flex gap-2 items-center text-2xl leading-3">
-                    <FaYoutube className="text-gray-800" />
-                    <BiLogoFacebookSquare className="text-gray-800" />
-                    <AiOutlineInstagram className="text-gray-800" />
-                    <FaLinkedinIn className="text-gray-800" />
+                    <a
+                      href="https://www.facebook.com/valueprint.com.sg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {" "}
+                      <BiLogoFacebookSquare className="text-gray-800" />
+                    </a>
+                    <a
+                      href="https://www.instagram.com/valueprint.com.sg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <AiOutlineInstagram className="text-gray-800" />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/company/valueprintltd"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <FaLinkedinIn className="text-gray-800" />
+                    </a>
+                    <a
+                      href="https://twitter.com/valueprintsg"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <BsTwitter className="text-gray-800" />
+                    </a>
                   </div>
                   <h3 className="font-bold text-xl text-fuchsia-900">
                     We Accept:

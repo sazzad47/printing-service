@@ -52,6 +52,36 @@ const SideNote = ({ features, featuresState }) => {
                   </Typography>
                 </div>
               ))}
+            
+                {featuresState.quantity && <div
+                  style={{
+                    borderLeft: `2px solid #701a75`,
+                    backgroundColor: "#fdf2f8",
+                  }}
+                  className="flex justify-between gap-5 items-center p-3 w-full"
+                >
+                  <Typography className="text-gray-900 text-xs">
+                    Quantity
+                  </Typography>
+                  <Typography className="text-gray-900 text-xs">
+                    {featuresState.quantity}
+                  </Typography>
+                </div>}
+                {featuresState.price && <div
+                  style={{
+                    borderLeft: `2px solid #701a75`,
+                    backgroundColor: "#fdf2f8",
+                  }}
+                  className="flex justify-between gap-5 items-center p-3 w-full"
+                >
+                  <Typography className="text-gray-900 text-xs">
+                    Price
+                  </Typography>
+                  <Typography className="text-gray-900 text-xs">
+                    ${featuresState.price}
+                  </Typography>
+                </div>}
+             
             </div>
           </div>
         </div>

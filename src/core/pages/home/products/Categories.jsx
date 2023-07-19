@@ -14,8 +14,6 @@ export default function Categories() {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState([]);
 
-  console.log('data', isLoading)
-
   useEffect(() => {
     if (data) {
       const uniqueCategories = [
@@ -52,7 +50,7 @@ export default function Categories() {
           sx={{
             flexGrow: 1,
             maxWidth: "100%",
-            bgcolor: "background.paper",
+           
           }}
         >
           <Tabs
@@ -97,6 +95,7 @@ export default function Categories() {
             ))}
           </Tabs>
           <TabPanel value={value} products={products} categories={categories} />
+         
         </Box>
       )}
     </>
@@ -115,9 +114,6 @@ function TabPanel({ value, products, categories }) {
         {filteredProducts.map((product, index) => (
           <div
             key={index}
-            role="tabpanel"
-            id={`simple-tabpanel-${index}`}
-            aria-labelledby={`simple-tab-${index}`}
             className="w-full flex flex-col gap-5 items-center"
           >
             <Product product={product} />
