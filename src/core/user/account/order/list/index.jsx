@@ -7,9 +7,9 @@ import { Oval } from "react-loader-spinner";
 const headers = ['Product Name', 'Quantity', 'Price', 'Status'];
 
 const Orders = () => {
-  const theme = useTheme();
-  const { data, isLoading } = useGetCategoriesQuery({});
 
+  const { data, isLoading } = useGetCategoriesQuery({});
+  console.log('data', data)
   return (
    <Layout>
        {isLoading? 

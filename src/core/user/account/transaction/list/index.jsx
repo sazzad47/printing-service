@@ -7,8 +7,8 @@ import { Oval } from "react-loader-spinner";
 const headers = ['Order ID', 'Amount', 'Status'];
 
 const Transactions = () => {
-  const theme = useTheme();
   const { data, isLoading } = useGetCategoriesQuery({});
+  console.log('data', data)
 
   return (
    <Layout>
