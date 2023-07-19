@@ -106,8 +106,6 @@ const Features = ({
         }}
       >
         <Typography className="text-gray-900">
-          {" "}
-          dekhto {subvariants.placeholder && subvariants.placeholder}{" "}
         </Typography>
         {features?.map((item, placeholderIndex) => {
           const isOpenFeatures =

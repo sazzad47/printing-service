@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../../../components/Header";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useGetProductQuery } from "../../../../state/api/product";
 import { Oval } from "react-loader-spinner";
 import Description from "./description";
@@ -13,6 +13,7 @@ import { addItem } from "../../../../state/api/cart";
 const Preview = () => {
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { id } = params;
   const [searchParams] = useSearchParams();
   const query = searchParams.get("service");
@@ -31,10 +32,14 @@ const Preview = () => {
   const [featuresState, setFeaturesState] = useState({});
 
   const handleAddToCart = () => {
+    const existingCartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    existingCartItems.push(featuresState);
+    localStorage.setItem("cart", JSON.stringify(existingCartItems));
     dispatch(addItem(featuresState));
+    navigate("/cart");
   };
 
-  console.log('data', data)
+  console.log("data", data);
 
   useEffect(() => {
     if (data) {
@@ -49,9 +54,7 @@ const Preview = () => {
     if (variants && variants.placeholder !== "") {
       setFeatures((prevFeatures) => [variants, ...prevFeatures]);
     }
-    }, [variants]);
-
-    
+  }, [variants]);
 
   return (
     <>
