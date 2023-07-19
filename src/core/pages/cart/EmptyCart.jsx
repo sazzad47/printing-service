@@ -10,7 +10,7 @@ const EmptyCart = () => {
         <div className="flex flex-col gap-5 w-[400px] max-w-full">
           <img src={cartEmpty} alt="" className="w-full h-auto" />
           <Typography align="center" className="text-gray-900 text-xl">
-            Your cart is currently empty. <Link to="/cart" className="no-underline">Start browsing</Link> our printing services
+            Your cart is currently empty. <Link to="/#products" className="no-underline">Start browsing</Link> our printing services
             and products to add items to your cart.
           </Typography>
         </div>
