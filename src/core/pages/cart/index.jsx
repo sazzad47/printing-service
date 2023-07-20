@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EmptyCart from "./EmptyCart";
 import { Grid, IconButton, Tooltip, Typography } from "@mui/material";
@@ -9,7 +9,8 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();   
+  const { access_token } = useSelector((state) => state.global);
   const cartItems = useSelector((state) => state.cart.items);
 
   const handleDuplicateItem = (item) => {
@@ -24,6 +25,31 @@ const Cart = () => {
     (total, item) => total + parseFloat(item.price),
     0
   );
+
+
+useEffect(() => {
+  const existingCartItems = JSON.parse(localStorage.getItem("cart"));
+  if (existingCartItems && existingCartItems.length > 0) {
+    existingCartItems.forEach((item) => {
+      dispatch(addItem(item));
+    });
+  }
+
+  return () => {
+    localStorage.removeItem("cart");
+  };
+
+}, [dispatch]);
+
+
+useEffect(() => {
+
+    const cartItemsJSON = JSON.stringify(cartItems);
+    localStorage.setItem("cart", cartItemsJSON);
+
+}, [cartItems]);
+
+
 
   console.log("cartItems", cartItems);
   return (
@@ -145,13 +171,13 @@ const Cart = () => {
                 <div className="w-full bg-white min-h-[50px] p-5 flex flex-col gap-5">
                   <Typography className="text-center text-gray-900 text-4xl font-bold"> Checkout </Typography>
                   <div className="flex justify-between w-full text-gray-900">
-                    <div className="text-xl font-bold"> Total </div> <div className="text-xl font-bold">{totalPrice} </div>
+                    <div className="text-xl font-bold"> Total </div> <div className="text-xl font-bold">${totalPrice} </div>
                   </div>
                   <button
                     className="mb-2 cursor-pointer inline-block rounded bg-fuchsia-900 px-12 pt-4 pb-3.5 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] md:mr-2 md:mb-0"
                     data-te-ripple-init
                     data-te-ripple-color="light"
-                    onClick={()=> navigate("/checkout")}
+                    onClick={()=> navigate(`/${access_token? "checkout": "login"}`)}
                   >
                     Checkout
                   </button>

@@ -31,9 +31,9 @@ const Checkout = () => {
             order={{xs: 2, md:1}}
             className="flex justify-center items-center w-full h-full"
           >
-            <div className="w-full bg-white center p-5">
+            {/* <div className="w-full bg-white center p-5">
                 <Information/>
-            </div>
+            </div> */}
           </Grid>
           <Grid item xs={12} md={4} order={{xs: 1, md:2}}>
             <div className="w-full bg-white min-h-[50px] p-5 flex flex-col gap-5">

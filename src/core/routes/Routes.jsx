@@ -23,6 +23,7 @@ const routes = [
   { path: "/account", component: <Orders /> },
   { path: "/transactions", component: <Transaction /> },
   { path: "/settings", component: <Settings /> },
+  { path: "/checkout", component: <Checkout /> },
 ];
 
 const publicRoutes = [
@@ -42,7 +43,6 @@ const publicRoutes = [
   { path: "/products/list/:category", component: <ProductsByCategory /> },
   { path: "/faq", component: <Faq /> },
   { path: "/cart", component: <Cart /> },
-  { path: "/checkout", component: <Checkout /> },
 ];
 
 export { routes, publicRoutes };
